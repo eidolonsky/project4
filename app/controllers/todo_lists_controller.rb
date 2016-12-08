@@ -4,12 +4,14 @@ class TodoListsController < ApplicationController
   # GET /todo_lists
   # GET /todo_lists.json
   def index
-    @todo_lists = TodoList.all
+    @todo_lists = TodoList.where(:user_id => current_todo_list.user_id)
+    @placeholder = TodoList.new
   end
 
   # GET /todo_lists/1
   # GET /todo_lists/1.json
   def show
+    @todo_list = @user.todo_lists.find(params[:id])
   end
 
   # GET /todo_lists/new
@@ -69,6 +71,6 @@ class TodoListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description)
+      params.require(:todo_list).permit(:title, :description, :user_id, :name)
     end
 end

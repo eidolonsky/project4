@@ -57,5 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml-rails", "~> 0.9"
 
 # Adding OAuth logins
-#gem "omniauth-github"
-#gem "devise"
+gem "omniauth-github"
+gem "devise"
+
+#strong attributes
